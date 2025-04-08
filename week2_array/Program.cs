@@ -4,10 +4,13 @@
 
 double[] grades = new double[10];
 
-Console.WriteLine(grades[0]);
 
 AddGrades(grades);
+
 DisplayGrades(grades);
+
+AvegareGrades(grades);
+
 
 void AddGrades(double[] grades)
 {
@@ -21,9 +24,11 @@ void AddGrades(double[] grades)
 
         while(!isValid)
         {
+            Console.WriteLine();
             Console.Write("ingresa las notas de los estudiantes: ");
-
             double inputGrades = Convert.ToDouble(Console.ReadLine());
+           
+          
 
             if (inputGrades >= 0 && inputGrades <= 100)
             {
@@ -33,7 +38,9 @@ void AddGrades(double[] grades)
             }
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("la notas tienen que tener un valor entre 0 y 100");
+               
             }
         }
         
@@ -49,4 +56,19 @@ void DisplayGrades(double[] grades)
     {
         Console.WriteLine($"student {i + 1} grades: {grades[i]} ");
     }
+    Console.WriteLine();
+}
+
+
+void AvegareGrades(double[] grades)
+{
+    double sum = 0;
+    double avegare = 0;
+    for (int i = 0; i < grades.Length; i++)
+    {
+        sum += grades[i];
+        avegare = sum / grades.Length;
+
+    }
+    Console.WriteLine($"avegare grades {avegare}");
 }
