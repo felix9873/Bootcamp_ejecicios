@@ -3,14 +3,14 @@ List<Libro> libros = new List<Libro>()
 {
     new Libro
     {
-        Nombre = "el hobbit",
+        Nombre = "El hobbit",
         Precio = 70,
         Stock = 10
     },
 
     new Libro
     {
-        Nombre = "el señor de los anillos la comunidad del anillo" ,
+        Nombre = "El señor de los anillos la comunidad del anillo" ,
         Precio = 120.40,
         Stock = 10
     },
@@ -22,30 +22,42 @@ List<Libro> libros = new List<Libro>()
     },
     new Libro
     {
-        Nombre = "el señor de los anillos" ,
+        Nombre = "El señor de los anillos" ,
         Precio = 120.40,
         Stock = 10
     },
     new Libro
     {
-        Nombre = "el señor de los anillos la 2 torres" ,
+        Nombre = "El señor de los anillos la 2 torres" ,
         Precio = 120.40,
-        Stock = 10
+        Stock = 20
     }
 };
 
+
+Console.WriteLine();
 
 var filterStock = libros.Where(libro => libro.Stock > 10).ToList();
 
 foreach (var item in filterStock)
 {
-    Console.WriteLine($"stock con mas de 10 {item}");
+    Console.WriteLine($"stock con mas de 10: {item.Stock} nombre: {item.Nombre}");
 }
 
 var filterPrice = libros.Where(libro => libro.Precio > 10.99).ToList();
 
-var findIndex = libros.FindIndex(libro => libro.Nombre.StartsWith("El"));
+Console.WriteLine();
 
+foreach (var item in filterPrice)
+{
+    Console.WriteLine($"libros con menor precio de: {item.Precio}  nombre: {item.Nombre}");
+}
+
+Console.WriteLine();
+
+var findWith = libros.FindIndex(libro => libro.Nombre.StartsWith("El"));
+
+Console.WriteLine($"el primer libro encontrado con la inicial el: {libros[findWith].Nombre}");
 
 class Libro
 {
