@@ -11,6 +11,13 @@ DisplayGrades(grades);
 
 AvegareGrades(grades);
 
+ApprovedStudent(grades);
+
+FindMaxAndMinGrade(grades);
+
+
+
+
 
 void AddGrades(double[] grades)
 {
@@ -71,4 +78,40 @@ void AvegareGrades(double[] grades)
 
     }
     Console.WriteLine($"avegare grades {avegare}");
+}
+
+void ApprovedStudent(double[] grades)
+{
+    int studentApproved = 0;
+
+    for (int i = 0; i < grades.Length; i++)
+    {
+        if (grades[i] >= 60)
+        {
+            studentApproved++;
+        }
+    }
+
+    Console.WriteLine($"nro de studiantes aprobaron {studentApproved}");
+}
+
+void FindMaxAndMinGrade(double[] grades)
+{
+    double max = grades[0];
+    double min = grades[0];
+
+    foreach (double grade in grades) 
+    { 
+        if(grade > max)
+        {
+            max = grade;
+        }
+        if (grade < min) 
+        { 
+            min = grade;
+        }
+
+    }
+
+    Console.WriteLine($"la nota mas alta es: {max} y la nota minima es: {min}");
 }
