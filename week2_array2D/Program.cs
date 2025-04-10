@@ -36,39 +36,68 @@ for (int i = 0; i < temperaturas.GetLength(0); i++)
         
         
     }
+}
 */
 
    
 
-    Console.WriteLine();
+Console.WriteLine();
 
 
-    int i, j, filas;
-    Console.WriteLine("Ingresa el numero de filas");
-    filas = Convert.ToInt32(Console.ReadLine());
+int i, j, filas;
+Console.WriteLine("Ingresa el numero de filas");
+filas = Convert.ToInt32(Console.ReadLine());
 
-    for (i = 1; i <= filas; i++)
+int spaces = filas;
+
+for (i = 1; i <= filas; i++)
+{
+    for (int k = spaces; k > 0; k--)
     {
-        for (j = 1; j <= i; j++)
+        Console.Write("-");  
+    }
+    spaces--;
+    for (j = 1; j <= i; j++)
+    {
+        Console.Write("* ");
+    }
+    
+    Console.Write("\n");
+}
+
+
+Console.WriteLine("Se acabo el bucle");
+
+/*
+ * 1
+ * 1 2
+ * 1 2 3
+ * 1 2 3 4
+ */
+
+int[] arreglo = { 44, 44, 32, 55 };
+var copy = arreglo;
+
+
+int numeroRepetido = 0;
+
+for (int k = 0; k < arreglo.Length; k++)
+{
+    
+    for (int m = 0; m < copy.Length; m++)
+    {
+        if (arreglo[k] == copy[m])
         {
-           if (j >= 2) 
-           {
-             Console.Write(j - 1 + " ");
-            }
-           else
-           {
-               Console.Write("* ");
-           }
+            numeroRepetido++;
             
         }
-        Console.Write("\n");
+        else
+        {
+            Console.WriteLine("numeros repetidos " + numeroRepetido);
+            return;
+        }
+        
     }
-    Console.WriteLine("Se acabo el bucle");
 
-    /*
-     * 1
-     * 1 2
-     * 1 2 3
-     * 1 2 3 4
-     */
+}
 
