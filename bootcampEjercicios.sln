@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bootcampEjercicios", "bootcampEjercicios\bootcampEjercicios.csproj", "{4774C681-5210-49D3-A379-AA3611F64D20}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week2_list", "Week2_list\Week2_list.csproj", "{235AC33B-81E5-4E48-B361-89D744004872}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "week2_array", "week2_array\week2_array.csproj", "{4A3740BC-843E-488C-9111-453E1D5BAD94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "week2_array2D", "week2_array2D\week2_array2D.csproj", "{35C3979E-BF53-4EB3-BDDA-D94950DB1937}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4A3740BC-843E-488C-9111-453E1D5BAD94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A3740BC-843E-488C-9111-453E1D5BAD94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A3740BC-843E-488C-9111-453E1D5BAD94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35C3979E-BF53-4EB3-BDDA-D94950DB1937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35C3979E-BF53-4EB3-BDDA-D94950DB1937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35C3979E-BF53-4EB3-BDDA-D94950DB1937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35C3979E-BF53-4EB3-BDDA-D94950DB1937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
