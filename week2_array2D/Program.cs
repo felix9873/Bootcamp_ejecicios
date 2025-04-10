@@ -1,4 +1,4 @@
-﻿
+﻿/*
 double[,] temperaturas = new double[4, 7];
 
 temperaturas[0, 0] = 12; temperaturas[0, 1] = 12000; temperaturas[0, 2] = 40000; temperaturas[0, 3] = 65; temperaturas[0, 4] = 19; temperaturas[0, 5] = 24; temperaturas[0, 6] = 10;
@@ -36,12 +36,39 @@ for (int i = 0; i < temperaturas.GetLength(0); i++)
         
         
     }
-
+*/
 
    
 
     Console.WriteLine();
-   
 
 
-}
+    int i, j, filas;
+    Console.WriteLine("Ingresa el numero de filas");
+    filas = Convert.ToInt32(Console.ReadLine());
+
+    for (i = 1; i <= filas; i++)
+    {
+        for (j = 1; j <= i; j++)
+        {
+           if (j >= 2) 
+           {
+             Console.Write(j - 1 + " ");
+            }
+           else
+           {
+               Console.Write("* ");
+           }
+            
+        }
+        Console.Write("\n");
+    }
+    Console.WriteLine("Se acabo el bucle");
+
+    /*
+     * 1
+     * 1 2
+     * 1 2 3
+     * 1 2 3 4
+     */
+
