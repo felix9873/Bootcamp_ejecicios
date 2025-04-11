@@ -1,48 +1,313 @@
-﻿/*
-double[,] temperaturas = new double[4, 7];
+﻿
 
-temperaturas[0, 0] = 12; temperaturas[0, 1] = 12000; temperaturas[0, 2] = 40000; temperaturas[0, 3] = 65; temperaturas[0, 4] = 19; temperaturas[0, 5] = 24; temperaturas[0, 6] = 10;
-temperaturas[1, 0] = 10; temperaturas[1, 1] = 30; temperaturas[1, 2] = 70; temperaturas[1, 3] = 10; temperaturas[1, 4] = 60; temperaturas[1, 5] = 70; temperaturas[1, 6] = 10;
-temperaturas[2, 0] = 10; temperaturas[2, 1] = 75; temperaturas[2, 2] = 74; temperaturas[2, 3] = 10; temperaturas[2, 4] = 18; temperaturas[2, 5] = 80; temperaturas[2, 6] = 80;
-temperaturas[3, 0] = 80; temperaturas[3, 1] = 54; temperaturas[3, 2] = 79; temperaturas[3, 3] = 10; temperaturas[3, 4] = 66; temperaturas[3, 5] = 65; temperaturas[3, 6] = 10;
 
-Console.WriteLine("           lunes       martes      miercoles   jueves      viernes     sabados     domingo");
+
+
+Console.WriteLine("REGISTRO DE TEMPERATURAS SEMANALES");
+Console.WriteLine("==================================\n");
+
+Console.WriteLine("¿Desea introducir las temperaturas manualmente o generarlas aleatoriamente?");
+Console.WriteLine("1. Introducir manualmente");
+Console.WriteLine("2. Generar aleatoriamente");
+Console.Write("Elija una opción (1-2): ");
+Console.WriteLine();
 Console.WriteLine();
 
-int week = 1;
-for (int i = 0; i < temperaturas.GetLength(0); i++)
+double[,] temperaturas = new double[4, 7];
+
+
+int opcion;
+while (!int.TryParse(Console.ReadLine(), out opcion) || (opcion != 1 && opcion != 2))
+{
+    Console.Write("Por favor, introduzca 1 o 2: ");
+}
+
+if (opcion == 1)
 {
     
-    Console.Write($"semana: {week}  ");
-    week++;
+    IntroducirTemperaturas(temperaturas);
 
-    for (int j = 0; j < temperaturas.GetLength(1); j++)
+    Console.WriteLine();
+
+    MostrarTemperaturas(temperaturas);
+
+    MediaSemana(temperaturas);
+    MediaDias(temperaturas);
+
+    Console.WriteLine();
+    DiaCalorYfrio(temperaturas);
+}
+else
+{
+    GenerarTemperaturasAleatorias(temperaturas);
+
+    Console.WriteLine();
+
+    MostrarTemperaturas(temperaturas);
+
+    MediaSemana(temperaturas);
+    MediaDias(temperaturas);
+
+    Console.WriteLine();
+    DiaCalorYfrio(temperaturas);
+}
+
+void DiaCalorYfrio(double[,] temperaturas)
+{
+    double diaMasCaluloroso = temperaturas[0,0];
+    double diaMasFrio = temperaturas[0, 0];
+
+    string dayCaluroso = "";
+    string dayFrio = "";
+
+    string semanaCaluroso = "";
+    string semanaFria = "";
+
+    string[] week = {"semana 1", "semana 2", "semana 3"};
+
+    string[] days = { "lunes", "martes", "miercoles" ,"jueves", "viernes" , "sabado", "domingo"};
+
+    for (int i = 0; i < temperaturas.GetLength(0); i++)
     {
-         
-       
-         if(temperaturas[i, j] >= 1000 )
-        {
-            Console.Write($"|{temperaturas[i, j]}|     ");
-        } 
-         else if (temperaturas[i, j] >= 10000)
-        {
-            Console.Write($"|{temperaturas[i, j]}|");
-        }
-        else
-        {
-            Console.Write($"|{temperaturas[i, j]}|        ");
-        }
         
+        for (int j = 0; j < temperaturas.GetLength(1); j++)
+        {
+            if (temperaturas[i,j] > diaMasCaluloroso)
+            {
+                
+                dayCaluroso = days[j];
+
+                semanaCaluroso = week[i];
+
+                diaMasCaluloroso = temperaturas [i, j];
+                
+            }
+            if (temperaturas[i,j] < diaMasFrio)
+            {
+                dayFrio = days[j];
+
+                semanaFria = week[i];
+
+                diaMasFrio = temperaturas[i,j];
+            }
+        }
+
+    }
+    Console.WriteLine($"dia mas caluroso °C {diaMasCaluloroso} dia {dayCaluroso} semana {semanaCaluroso}");
+    Console.WriteLine($"dia mas frio °C {diaMasFrio} dia {dayFrio} semana {semanaFria}");
+}
+
+void MediaDias(double[,] temperaturas)
+{
+
+    double sum = 0;
+
+
+    double[] daysMedia = new double[7];
+
+    for (int i = 0; i < temperaturas.GetLength(0); i++)
+    {
+
+        for (int j = 0; j < temperaturas.GetLength(1); j++)
+        {
+            
+           if(j == 0)
+           {
+                sum += temperaturas[i, j];
+                daysMedia[0] = sum / temperaturas.GetLength(0);
+           }
+           else if (j == 1)
+           {
+                sum += temperaturas[i, j];
+                daysMedia[1] = sum / temperaturas.GetLength(0);
+            }
+           else if (j == 2)
+           {
+                sum += temperaturas[i, j];
+                daysMedia[2] = sum / temperaturas.GetLength(0);
+            }
+           else if (j == 3)
+           {
+                sum += temperaturas[i, j];
+                daysMedia[3] = sum / temperaturas.GetLength(0);
+            }
+           else if (j == 4)
+           {
+                sum += temperaturas[i, j];
+                daysMedia[4] = sum / temperaturas.GetLength(0);
+            }
+           else if (j == 5)
+           {
+                sum += temperaturas[i, j];
+                daysMedia[5] = sum / temperaturas.GetLength(0);
+            }
+           else if (j == 6)
+           {
+                sum += temperaturas[i, j];
+                daysMedia[6] = sum / temperaturas.GetLength(0);
+            }
+
+        }
+
         
+    }
+    Console.WriteLine();
+
+    Console.WriteLine($"lunes media de temperatura °C {daysMedia[0]}");
+    Console.WriteLine($"martes media de temperatura °C {daysMedia[1]}");
+    Console.WriteLine($"miercoles media de temperatura °C {daysMedia[2]}");
+    Console.WriteLine($"jueves media de temperatura °C {daysMedia[3]}");
+    Console.WriteLine($"viernes media de temperatura °C {daysMedia[4]}");
+    Console.WriteLine($"sabado media de temperatura  °C {daysMedia[5]}");
+    Console.WriteLine($"domingo media de temperatura °C {daysMedia[0]}");
+}
+
+void MostrarTemperaturas(double[,] temperaturas)
+{
+    Console.WriteLine("                                       temperaturas                                             ");
+    Console.WriteLine();
+    Console.WriteLine("           lunes       martes      miercoles   jueves      viernes     sabados     domingo");
+    Console.WriteLine();
+
+    int week = 1;
+    for (int i = 0; i < temperaturas.GetLength(0); i++)
+    {
+
+        Console.Write($"semana: {week}  ");
+        week++;
+
+        for (int j = 0; j < temperaturas.GetLength(1); j++)
+        {
+
+
+            if (temperaturas[i, j] >= 100 && temperaturas[i, j] >= 1000)
+            {
+                Console.Write($"|{temperaturas[i, j]}|      ");
+            }
+            else if(temperaturas[i, j] >= 100)
+            {
+                Console.Write($"|{temperaturas[i, j]}|       ");
+            }
+            else if (temperaturas[i, j] >= 10)
+            {
+                Console.Write($"|{temperaturas[i, j]}|        ");
+            }
+            else if (temperaturas[i, j] >= 0 && temperaturas[i, j] <= 10)
+            {
+                Console.Write($"|{temperaturas[i, j]}|         ");
+            }
+            else if (temperaturas[i, j] >= 10 && temperaturas[i, j] >= 1000)
+            {
+                Console.Write($"|{temperaturas[i, j]}|                   ");
+            }
+            else if (temperaturas[i, j] >= 10000)
+            {
+                Console.Write($"|{temperaturas[i, j]}|");
+            }
+            else
+            {
+                Console.Write($"|{temperaturas[i, j]}|        ");
+            }
+        }
+        Console.WriteLine();
+
+    }
+    
+}
+
+void IntroducirTemperaturas(double[,] temperaturas)
+{
+    
+    for (int i = 0; i < temperaturas.GetLength(0); i++)
+    {
+        
+        for (int j = 0; j < temperaturas.GetLength(1); j++)
+        {
+            
+            bool isValid = false;
+            
+            while (!isValid)
+            {
+
+                Console.Write("ingresa las temperaturas: ");
+                double temperatura = Convert.ToDouble(Console.ReadLine());
+                temperaturas[i,j] = temperatura;
+               
+                isValid = true;
+
+            }
+
+        }
         
     }
 }
-*/
 
-   
+void GenerarTemperaturasAleatorias(double[,] temperaturas)
+{
 
-Console.WriteLine();
+    for (int i = 0; i < temperaturas.GetLength(0); i++)
+    {
 
+        for (int j = 0; j < temperaturas.GetLength(1); j++)
+        {
+            Random r = new Random();
+            temperaturas[i, j] =  r.Next(10, 36);
+            
+        }
+
+    }
+}
+
+void MediaSemana(double[,] temperaturas)
+{
+    double sum = 0;
+    
+
+    double[] weekMedia = new double[4];
+    for (int i = 0; i < temperaturas.GetLength(0); i++)
+    {
+
+        for (int j = 0; j < temperaturas.GetLength(1); j++)
+        {
+            if(i == 0)
+            {
+                sum += temperaturas[i, j];
+
+                weekMedia[0] = sum / temperaturas.GetLength(1);
+            }
+            else if(i == 1)
+            {
+                sum += temperaturas[i, j];
+
+                weekMedia[1] = sum / temperaturas.GetLength(1);
+            }
+            else if (i == 2)
+            {
+                sum += temperaturas[i, j];
+
+                weekMedia[2] = sum / temperaturas.GetLength(1);
+            }
+            else if (i == 3)
+            {
+                sum += temperaturas[i, j];
+
+                weekMedia[3] = sum / temperaturas.GetLength(1);
+            }
+
+            
+        }
+        
+
+    }
+
+    Console.WriteLine();
+
+    Console.WriteLine("media de temperaturas semana 1: " + weekMedia[0]);
+    Console.WriteLine("media de temperaturas semana 2: " + weekMedia[1]);
+    Console.WriteLine("media de temperaturas semana 3: " + weekMedia[2]);
+    Console.WriteLine("media de temperaturas semana 4: " + weekMedia[3]);
+}
+/*
 
 int i, j, filas;
 Console.WriteLine("Ingresa el numero de filas");
@@ -67,7 +332,7 @@ for (i = 1; i <= filas; i++)
 
 
 Console.WriteLine("Se acabo el bucle");
-
+*/
 /*
  * 1
  * 1 2
@@ -75,29 +340,32 @@ Console.WriteLine("Se acabo el bucle");
  * 1 2 3 4
  */
 
+/*
 int[] arreglo = { 44, 44, 32, 55 };
-var copy = arreglo;
+int[] arregloVacuio = new int[arreglo.Length];
+
+int nroRepetidos = 0;
 
 
-int numeroRepetido = 0;
+List<int> list = new List<int>();   
+
 
 for (int k = 0; k < arreglo.Length; k++)
 {
-    
-    for (int m = 0; m < copy.Length; m++)
+
+    for (global::System.Int32 i1 = 0; i1 < arregloVacuio.Length; i1++)
     {
-        if (arreglo[k] == copy[m])
+        if (!arregloVacuio.Contains(arregloVacuio[arreglo[k]]))
         {
-            numeroRepetido++;
-            
-        }
-        else
-        {
-            Console.WriteLine("numeros repetidos " + numeroRepetido);
-            return;
+            arregloVacuio[i1] = arreglo[k];
+            nroRepetidos++;
+
+            Console.WriteLine(nroRepetidos);
         }
         
     }
 
+
 }
 
+*/
