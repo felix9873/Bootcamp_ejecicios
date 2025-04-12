@@ -24,5 +24,36 @@ namespace MusicPlayDemo
             _author = author;
             _date = date;
         }
+
+
+        public string GetAuthor()
+        {
+            return _author;
+        }
+
+        public string GetAlbum()
+        {
+            return _album;
+        }
+
+        public string GetDate() 
+        { 
+            return _date;
+        }
+
+        public void SetAuthor(string author) 
+        {
+            _author = author;
+        }
+
+        public void SetDate(string date) 
+        {
+            _date = date;
+        }
+
+        public void SetAlbum(string album) 
+        {
+            _album = album;
+        }
     }
 }
