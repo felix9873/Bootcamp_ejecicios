@@ -2,7 +2,7 @@
 
 
 
-
+/*
 Console.WriteLine("REGISTRO DE TEMPERATURAS SEMANALES");
 Console.WriteLine("==================================\n");
 
@@ -33,7 +33,7 @@ if (opcion == 1)
 
     MediaSemana(temperaturas);
     MediaDias(temperaturas);
-
+    
     Console.WriteLine();
     DiaCalorYfrio(temperaturas);
 }
@@ -307,6 +307,8 @@ void MediaSemana(double[,] temperaturas)
     Console.WriteLine("media de temperaturas semana 3: " + weekMedia[2]);
     Console.WriteLine("media de temperaturas semana 4: " + weekMedia[3]);
 }
+
+*/
 /*
 
 int i, j, filas;
@@ -340,32 +342,36 @@ Console.WriteLine("Se acabo el bucle");
  * 1 2 3 4
  */
 
-/*
-int[] arreglo = { 44, 44, 32, 55 };
-int[] arregloVacuio = new int[arreglo.Length];
+int[] numbers = {2,7,11,15 };
 
-int nroRepetidos = 0;
+int[] result =TwoSum(numbers, 26);
 
-
-List<int> list = new List<int>();   
-
-
-for (int k = 0; k < arreglo.Length; k++)
+foreach (var item in result)
 {
-
-    for (global::System.Int32 i1 = 0; i1 < arregloVacuio.Length; i1++)
-    {
-        if (!arregloVacuio.Contains(arregloVacuio[arreglo[k]]))
-        {
-            arregloVacuio[i1] = arreglo[k];
-            nroRepetidos++;
-
-            Console.WriteLine(nroRepetidos);
-        }
-        
-    }
-
-
+    Console.WriteLine(item);
 }
 
-*/
+int[] TwoSum(int[] nums, int target)
+{
+    Dictionary<int, int> numToIndex = new Dictionary<int, int>();
+
+    for (int i = 0; i < nums.Length; i++)
+    {
+        int complement = target - nums[i];
+
+        Console.WriteLine("complement " + complement);
+
+        if (numToIndex.ContainsKey(complement))
+        {
+            return new int[] { numToIndex[complement], i };
+        }
+
+        if (!numToIndex.ContainsKey(nums[i]))
+        {
+            numToIndex[nums[i]] = i;
+        }
+    }
+
+    // In case there is no solution, which shouldn't happen as per the problem statement
+    throw new ArgumentException("No two sum solution found.");
+}
