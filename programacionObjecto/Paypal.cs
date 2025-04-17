@@ -21,6 +21,32 @@ namespace programacionObjecto
             _email = email;
         }
 
+        public string GetEmail()
+        {
+            return _email;
+        }
+        public string Password()
+        {
+            return _password;
+        }
+
+        public CreditCard GetCreditCard ()
+        {
+            return _creditAsocite;
+        }
+
+        public void SetCreditCard(CreditCard creditCard)
+        {
+            _creditAsocite = creditCard;
+        }
+        public void SetPassword(string password)
+        {
+            _password = password;
+        }
+        public void SetEmail(string email)
+        {
+            _email = email;
+        }
         public void ConfirmPayment()
         {
             Console.WriteLine("pago confirmado con paypal");
