@@ -9,7 +9,7 @@ namespace programacionObjecto
     public interface  IPayment
     {
 
-        public  void TypePayment();
-        public void ConfirmPayment();
+        void TypePayment();
+        void ConfirmPayment();
     }
 }
