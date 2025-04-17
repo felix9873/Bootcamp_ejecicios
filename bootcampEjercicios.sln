@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "week2_array2D", "week2_arra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayDemo", "MusicPlayDemo\MusicPlayDemo.csproj", "{8DE83F4F-2266-4776-A658-4610AC2CB8D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "programacionObjecto", "programacionObjecto\programacionObjecto.csproj", "{FDF95CFF-62D6-473B-B4E1-51C06A1E195D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{8DE83F4F-2266-4776-A658-4610AC2CB8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DE83F4F-2266-4776-A658-4610AC2CB8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DE83F4F-2266-4776-A658-4610AC2CB8D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF95CFF-62D6-473B-B4E1-51C06A1E195D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF95CFF-62D6-473B-B4E1-51C06A1E195D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF95CFF-62D6-473B-B4E1-51C06A1E195D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF95CFF-62D6-473B-B4E1-51C06A1E195D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
